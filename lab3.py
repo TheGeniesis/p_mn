@@ -6,19 +6,27 @@ def calc(exprType):
     n = 3
     yi = 0
     x= 0
+    # x*
     xg = 0
+    #xi+1
     x1 = 0
+    # y*
     yg = 0
+    # m*
     mg = 0
+    h=0.1
 
     for n in range (n):
-        x1= x + 0.1
-        xg = 0.5*(x + x1)
-        yg = y + xg*eval(str(x) + exprType + str(y))
-        mg = yg + xg
-        yi = y + 0.1 * mg
+        x1 = x + h
+        # x* = 0.5(xi+xi+1)
+        xg = 0.5*h*(x + x1)
+        # y*=yi+0.5hF(xi,yi)
+        yg = y + 0.5*h*eval(str(x) + exprType + str(y))
+        # m* = F(x*,y*)
+        mg = xg + yg
+        yi = y + h * mg
         y = yi
-        x = x + 0.1
+        x = x + h
         print ("=======================")
         print ("Loop number " + str(n))
         print ("=======================")
